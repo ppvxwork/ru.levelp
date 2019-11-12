@@ -38,8 +38,8 @@ public class App
 			final LoggingAnnotationProcessor processor = new LoggingAnnotationProcessor();
 			for (Class<?> clazz : classes)
 			{
-				final Lesson instance          = (Lesson) clazz.newInstance();
-				final Lesson processedInstance = (Lesson) processor.process(instance);
+				final Object instance          = clazz.newInstance();
+				final Object processedInstance = processor.process(instance);
 				System.out.println(processedInstance);
 			}
 		}
@@ -104,10 +104,7 @@ public class App
 				}
 				else if (file.getName().endsWith(CLASS_EXTENTION))
 				{
-					final Class<?> clazz =
-						Class.forName(packageName + DOT + file.getName()
-						                                      .substring(0, file.getName()
-						                                                        .length() - CLASS_EXTENTION.length()));
+					final Class<?> clazz = Class.forName(packageName + DOT + file.getName().substring(0, file.getName().length() - CLASS_EXTENTION.length()));
 					if (!clazz.isInterface())
 					{
 						classes.add(clazz);
