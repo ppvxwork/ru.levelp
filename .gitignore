@@ -1,0 +1,16 @@
+### Build ###
+*.class
+/target
+*/target
+*/target/*
+
+### Intellij ###
+.ideaDataSources/
+dataSources/
+.idea/
+/out/
+*.iml
+*.iws
+*.ipr
+*.ids
+*/out/*
